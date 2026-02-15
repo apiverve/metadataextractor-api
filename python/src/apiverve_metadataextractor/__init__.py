@@ -1,1 +1,3 @@
-from .apiClient import MetadataextractorAPIClient
+from .apiClient import MetadataextractorAPIClient, MetadataextractorAPIClientError
+
+__all__ = ['MetadataextractorAPIClient', 'MetadataextractorAPIClientError']
