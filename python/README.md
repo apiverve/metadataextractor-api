@@ -1128,8 +1128,9 @@ from apiverve_metadataextractor.apiClient import MetadataextractorAPIClient
 
 api = MetadataextractorAPIClient("[YOUR_API_KEY]")
 
+query = { "url": "https://apiverve.com" }
+
 try:
-    query = { "url": "https://apiverve.com" }
     result = api.execute(query)
     print(result)
 finally:
