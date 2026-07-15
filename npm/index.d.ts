@@ -4,86 +4,104 @@ declare module '@apiverve/metadataextractor' {
     secure?: boolean;
   }
 
+  /**
+   * Describes fields the current plan does not unlock. Locked fields arrive as null
+   * in `data`; `locked_fields` names them, using dot paths for nested fields.
+   * Absent when the plan unlocks everything.
+   */
+  export interface PremiumInfo {
+    message: string;
+    upgrade_url: string;
+    locked_fields: string[];
+  }
+
   export interface metadataextractorResponse {
     status: string;
     error: string | null;
     data: MetadataExtractorData;
     code?: number;
+    premium?: PremiumInfo;
   }
 
 
   interface MetadataExtractorData {
-      requestURL:               string;
-      url:                      string;
-      canonical:                string;
-      charset:                  string;
-      title:                    string;
-      image:                    string;
-      favicons:                 Favicon[];
-      author:                   string;
-      description:              string;
-      keywords:                 string;
-      source:                   string;
-      price:                    string;
-      priceCurrency:            string;
-      availability:             string;
-      robots:                   string;
-      jsonld:                   any[];
-      ogURL:                    string;
-      ogLocale:                 string;
-      ogLocaleAlternate:        string;
-      ogTitle:                  string;
-      ogType:                   string;
-      ogDescription:            string;
-      ogDeterminer:             string;
-      ogSiteName:               string;
-      ogImage:                  string;
-      ogImageSecureURL:         string;
-      ogImageType:              string;
-      ogImageWidth:             string;
-      ogImageHeight:            string;
-      twitterTitle:             string;
-      twitterDescription:       string;
-      twitterImage:             string;
-      twitterImageAlt:          string;
-      twitterCard:              string;
-      twitterSite:              string;
-      twitterSiteID:            string;
-      twitterURL:               string;
-      twitterAccountID:         string;
-      twitterCreator:           string;
-      twitterCreatorID:         string;
-      twitterPlayer:            string;
-      twitterPlayerWidth:       string;
-      twitterPlayerHeight:      string;
-      twitterPlayerStream:      string;
-      twitterAppNameIphone:     string;
-      twitterAppIDIphone:       string;
-      twitterAppURLIphone:      string;
-      twitterAppNameIpad:       string;
-      twitterAppIDIpad:         string;
-      twitterAppURLIpad:        string;
-      twitterAppNameGoogleplay: string;
-      twitterAppIDGoogleplay:   string;
-      twitterAppURLGoogleplay:  string;
-      headings:                 Heading[];
-      imgTags:                  ImgTag[];
-      responseBody:             string;
-      fbAppID:                  string;
-      msapplicationTileColor:   string;
-      msapplicationTileImage:   string;
-      pDomainVerify:            string;
+      requestURL:                      null | string;
+      url:                             null | string;
+      canonical:                       null | string;
+      lang:                            null | string;
+      charset:                         null | string;
+      title:                           null | string;
+      image:                           null | string;
+      favicons:                        Favicon[];
+      author:                          null | string;
+      description:                     null | string;
+      keywords:                        null | string;
+      source:                          null | string;
+      price:                           null | string;
+      priceCurrency:                   null | string;
+      availability:                    null | string;
+      robots:                          null | string;
+      jsonld:                          Jsonld[];
+      ogURL:                           null | string;
+      ogLocale:                        null | string;
+      ogLocaleAlternate:               null | string;
+      ogTitle:                         null | string;
+      ogType:                          null | string;
+      ogDescription:                   null | string;
+      ogDeterminer:                    null | string;
+      ogSiteName:                      null | string;
+      ogImage:                         null | string;
+      ogImageSecureURL:                null | string;
+      ogImageType:                     null | string;
+      ogImageWidth:                    null | string;
+      ogImageHeight:                   null | string;
+      twitterTitle:                    null | string;
+      twitterDescription:              null | string;
+      twitterImage:                    null | string;
+      twitterImageAlt:                 null | string;
+      twitterCard:                     null | string;
+      twitterSite:                     null | string;
+      twitterSiteID:                   null | string;
+      twitterURL:                      null | string;
+      twitterAccountID:                null | string;
+      twitterCreator:                  null | string;
+      twitterCreatorID:                null | string;
+      twitterPlayer:                   null | string;
+      twitterPlayerWidth:              null | string;
+      twitterPlayerHeight:             null | string;
+      twitterPlayerStream:             null | string;
+      twitterAppNameIphone:            null | string;
+      twitterAppIDIphone:              null | string;
+      twitterAppURLIphone:             null | string;
+      twitterAppNameIpad:              null | string;
+      twitterAppIDIpad:                null | string;
+      twitterAppURLIpad:               null | string;
+      twitterAppNameGoogleplay:        null | string;
+      twitterAppIDGoogleplay:          null | string;
+      twitterAppURLGoogleplay:         null | string;
+      headings:                        Heading[];
+      imgTags:                         { [key: string]: null | string }[];
+      responseBody:                    null | string;
+      viewport:                        null | string;
+      googlebot:                       null | string;
+      themeColor:                      null | string;
+      applicationName:                 null | string;
+      msapplicationTileColor:          null | string;
+      mobileWebAppCapable:             null | string;
+      appleMobileWebAppTitle:          null | string;
+      appleMobileWebAppStatusBarStyle: null | string;
+      ogImageAlt:                      null | string;
   }
   
   interface Favicon {
-      rel:    string;
-      href:   string;
-      sizes?: string;
+      rel:   null | string;
+      type?: null | string;
+      href:  null | string;
   }
   
   interface Heading {
-      level: Level;
-      text:  string;
+      level: Level | null;
+      text:  null | string;
   }
   
   enum Level {
@@ -92,12 +110,27 @@ declare module '@apiverve/metadataextractor' {
       H3 = "h3",
       H4 = "h4",
       H5 = "h5",
-      H6 = "h6",
   }
   
-  interface ImgTag {
-      src:  string;
-      alt?: string;
+  interface Jsonld {
+      context:          null | string;
+      type:             null | string;
+      name?:            null | string;
+      url:              null | string;
+      logo?:            null | string;
+      sameAs?:          (null | string)[];
+      potentialAction?: PotentialAction;
+  }
+  
+  interface PotentialAction {
+      type:       null | string;
+      target:     Target;
+      queryInput: null | string;
+  }
+  
+  interface Target {
+      type:        null | string;
+      urlTemplate: null | string;
   }
 
   export default class metadataextractorWrapper {
