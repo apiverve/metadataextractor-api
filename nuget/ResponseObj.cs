@@ -25,6 +25,9 @@ namespace APIVerve.API.MetadataExtractor
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
@@ -37,6 +40,9 @@ namespace APIVerve.API.MetadataExtractor
 
         [JsonProperty("canonical")]
         public Uri Canonical { get; set; }
+
+        [JsonProperty("lang")]
+        public string Lang { get; set; }
 
         [JsonProperty("charset")]
         public string Charset { get; set; }
@@ -75,7 +81,7 @@ namespace APIVerve.API.MetadataExtractor
         public string Robots { get; set; }
 
         [JsonProperty("jsonld")]
-        public object[] Jsonld { get; set; }
+        public Jsonld[] Jsonld { get; set; }
 
         [JsonProperty("og:url")]
         public Uri OgUrl { get; set; }
@@ -102,7 +108,7 @@ namespace APIVerve.API.MetadataExtractor
         public string OgSiteName { get; set; }
 
         [JsonProperty("og:image")]
-        public string OgImage { get; set; }
+        public Uri OgImage { get; set; }
 
         [JsonProperty("og:image:secure_url")]
         public string OgImageSecureUrl { get; set; }
@@ -111,10 +117,10 @@ namespace APIVerve.API.MetadataExtractor
         public string OgImageType { get; set; }
 
         [JsonProperty("og:image:width")]
-        public string OgImageWidth { get; set; }
+        public long? OgImageWidth { get; set; }
 
         [JsonProperty("og:image:height")]
-        public string OgImageHeight { get; set; }
+        public long? OgImageHeight { get; set; }
 
         [JsonProperty("twitter:title")]
         public string TwitterTitle { get; set; }
@@ -123,7 +129,7 @@ namespace APIVerve.API.MetadataExtractor
         public string TwitterDescription { get; set; }
 
         [JsonProperty("twitter:image")]
-        public string TwitterImage { get; set; }
+        public Uri TwitterImage { get; set; }
 
         [JsonProperty("twitter:image:alt")]
         public string TwitterImageAlt { get; set; }
@@ -192,22 +198,37 @@ namespace APIVerve.API.MetadataExtractor
         public Heading[] Headings { get; set; }
 
         [JsonProperty("imgTags")]
-        public ImgTag[] ImgTags { get; set; }
+        public Dictionary<string, string>[] ImgTags { get; set; }
 
         [JsonProperty("responseBody")]
         public string ResponseBody { get; set; }
 
-        [JsonProperty("fb:app_id")]
-        public string FbAppId { get; set; }
+        [JsonProperty("viewport")]
+        public string Viewport { get; set; }
+
+        [JsonProperty("googlebot")]
+        public string Googlebot { get; set; }
+
+        [JsonProperty("theme-color")]
+        public string ThemeColor { get; set; }
+
+        [JsonProperty("application-name")]
+        public string ApplicationName { get; set; }
 
         [JsonProperty("msapplication-TileColor")]
         public string MsapplicationTileColor { get; set; }
 
-        [JsonProperty("msapplication-TileImage")]
-        public Uri MsapplicationTileImage { get; set; }
+        [JsonProperty("mobile-web-app-capable")]
+        public string MobileWebAppCapable { get; set; }
 
-        [JsonProperty("p:domain_verify")]
-        public string PDomainVerify { get; set; }
+        [JsonProperty("apple-mobile-web-app-title")]
+        public string AppleMobileWebAppTitle { get; set; }
+
+        [JsonProperty("apple-mobile-web-app-status-bar-style")]
+        public string AppleMobileWebAppStatusBarStyle { get; set; }
+
+        [JsonProperty("og:image:alt")]
+        public string OgImageAlt { get; set; }
     }
 
     public partial class Favicon
@@ -215,30 +236,78 @@ namespace APIVerve.API.MetadataExtractor
         [JsonProperty("rel")]
         public string Rel { get; set; }
 
-        [JsonProperty("href")]
-        public Uri Href { get; set; }
+        [JsonProperty("type")]
+        public string Type { get; set; }
 
-        [JsonProperty("sizes", NullValueHandling = NullValueHandling.Ignore)]
-        public string Sizes { get; set; }
+        [JsonProperty("href")]
+        public string Href { get; set; }
     }
 
     public partial class Heading
     {
         [JsonProperty("level")]
-        public Level Level { get; set; }
+        public Level? Level { get; set; }
 
         [JsonProperty("text")]
         public string Text { get; set; }
     }
 
-    public partial class ImgTag
+    public partial class Jsonld
     {
-        [JsonProperty("src")]
-        public string Src { get; set; }
+        [JsonProperty("@context")]
+        public Uri Context { get; set; }
 
-        [JsonProperty("alt", NullValueHandling = NullValueHandling.Ignore)]
-        public string Alt { get; set; }
+        [JsonProperty("@type")]
+        public string Type { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("url")]
+        public Uri Url { get; set; }
+
+        [JsonProperty("logo")]
+        public Uri Logo { get; set; }
+
+        [JsonProperty("sameAs", NullValueHandling = NullValueHandling.Ignore)]
+        public Uri[] SameAs { get; set; }
+
+        [JsonProperty("potentialAction", NullValueHandling = NullValueHandling.Ignore)]
+        public PotentialAction PotentialAction { get; set; }
     }
 
-    public enum Level { H1, H2, H3, H4, H5, H6 };
+    public partial class PotentialAction
+    {
+        [JsonProperty("@type")]
+        public string Type { get; set; }
+
+        [JsonProperty("target")]
+        public Target Target { get; set; }
+
+        [JsonProperty("query-input")]
+        public string QueryInput { get; set; }
+    }
+
+    public partial class Target
+    {
+        [JsonProperty("@type")]
+        public string Type { get; set; }
+
+        [JsonProperty("urlTemplate")]
+        public string UrlTemplate { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
+    }
+
+    public enum Level { H1, H2, H3, H4, H5 };
 }
