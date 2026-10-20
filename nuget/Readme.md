@@ -1,13 +1,12 @@
-MetadataExtractor API
+Metadata Extractor API
 ============
 
-Metadata Extractor is a simple tool for extracting metadata from web pages. It returns the meta title, meta description, and more.
+Metadata Extractor is a website metadata extraction API that pulls HTML meta tags from any submitted URL, returning the page title, meta description, author, robots directives, and language. Paid tiers add Open Graph tags, JSON-LD schemas, and favicons.
 
-![Build Status](https://img.shields.io/badge/build-passing-green)
-![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
-![Prod Ready](https://img.shields.io/badge/production-ready-blue)
 
-This is a .NET Wrapper for the [MetadataExtractor API](https://apiverve.com/marketplace/metadataextractor?utm_source=nuget&utm_medium=readme)
+[![NuGet version](https://img.shields.io/nuget/v/APIVerve.API.MetadataExtractor.svg)](https://www.nuget.org/packages/APIVerve.API.MetadataExtractor)
+
+This is a .NET wrapper for the [Metadata Extractor API](https://apiverve.com/marketplace/metadataextractor?utm_source=nuget&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -40,8 +39,8 @@ From within Visual Studio:
 
 ## Configuration
 
-Before using the metadataextractor API client, you have to setup your account and obtain your API Key.
-You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=nuget&utm_medium=readme)
+Before using the Metadata Extractor API client, you have to setup your account and obtain your API Key.
+You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=nuget&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -61,8 +60,8 @@ class Program
         var apiClient = new MetadataExtractorAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new MetadataExtractorQueryOptions {
-    url = "https://apiverve.com"
-};
+            Url = "https://apiverve.com"
+        };
 
         // Make the API call
         try
@@ -92,13 +91,13 @@ class Program
 
 ## Usage
 
-The MetadataExtractor API documentation is found here: [https://docs.apiverve.com/ref/metadataextractor](https://docs.apiverve.com/ref/metadataextractor?utm_source=nuget&utm_medium=readme).
+The Metadata Extractor API documentation is found here: [https://docs.apiverve.com/ref/metadataextractor](https://docs.apiverve.com/ref/metadataextractor?utm_source=nuget&utm_medium=referral&utm_content=readme).
 You can find parameters, example responses, and status codes documented here.
 
 ### Setup
 
 ###### Authentication
-MetadataExtractor API uses API Key-based authentication. When you create an instance of the API client, you can pass your API Key as a parameter.
+Metadata Extractor API uses API Key-based authentication. When you create an instance of the API client, you can pass your API Key as a parameter.
 
 ```csharp
 // Create an instance of the API client
@@ -125,8 +124,8 @@ public class Example
         var apiClient = new MetadataExtractorAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new MetadataExtractorQueryOptions {
-    url = "https://apiverve.com"
-};
+            Url = "https://apiverve.com"
+        };
 
         var response = await apiClient.ExecuteAsync(queryOptions);
 
@@ -157,8 +156,8 @@ public class Example
         var apiClient = new MetadataExtractorAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new MetadataExtractorQueryOptions {
-    url = "https://apiverve.com"
-};
+            Url = "https://apiverve.com"
+        };
 
         var response = apiClient.Execute(queryOptions);
 
@@ -194,8 +193,8 @@ public class Example
         var apiClient = new MetadataExtractorAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new MetadataExtractorQueryOptions {
-    url = "https://apiverve.com"
-};
+            Url = "https://apiverve.com"
+        };
 
         try
         {
@@ -250,8 +249,8 @@ public class Example
         apiClient.SetRetryDelay(2000);     // Wait 2 seconds between retries
 
         var queryOptions = new MetadataExtractorQueryOptions {
-    url = "https://apiverve.com"
-};
+            Url = "https://apiverve.com"
+        };
 
         try
         {
@@ -291,7 +290,7 @@ apiClient.AddCustomHeader("X-Custom-Header", "custom-value");
 apiClient.AddCustomHeader("X-Request-ID", Guid.NewGuid().ToString());
 
 var queryOptions = new MetadataExtractorQueryOptions {
-    url = "https://apiverve.com"
+    Url = "https://apiverve.com"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -317,7 +316,7 @@ apiClient.SetLogger(message =>
 });
 
 var queryOptions = new MetadataExtractorQueryOptions {
-    url = "https://apiverve.com"
+    Url = "https://apiverve.com"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -335,7 +334,7 @@ apiClient.SetMaxRetries(3);           // Retry up to 3 times (default: 0, max: 3
 apiClient.SetRetryDelay(1500);        // Wait 1.5 seconds between retries (default: 1000ms)
 
 var queryOptions = new MetadataExtractorQueryOptions {
-    url = "https://apiverve.com"
+    Url = "https://apiverve.com"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -347,7 +346,7 @@ The API client implements `IDisposable` for proper resource cleanup:
 
 ```csharp
 var queryOptions = new MetadataExtractorQueryOptions {
-    url = "https://apiverve.com"
+    Url = "https://apiverve.com"
 };
 
 using (var apiClient = new MetadataExtractorAPIClient("[YOUR_API_KEY]"))
@@ -369,16 +368,16 @@ using (var apiClient = new MetadataExtractorAPIClient("[YOUR_API_KEY]"))
   "data": {
     "requestUrl": "https://apiverve.com",
     "url": "https://apiverve.com/",
-    "canonical": "https://apiverve.com",
+    "canonical": "",
     "lang": "en",
     "charset": "utf-8",
-    "title": "APIVerve - Fast, Scalable, and Reliable APIs",
+    "title": "APIVerve — One key for 300+ production APIs",
     "image": "",
     "favicons": [
       {
         "rel": "icon",
-        "type": "image/x-icon",
-        "href": "/images/favicon.ico"
+        "href": "/images/favicon.ico",
+        "sizes": "any"
       },
       {
         "rel": "icon",
@@ -387,62 +386,34 @@ using (var apiClient = new MetadataExtractorAPIClient("[YOUR_API_KEY]"))
       },
       {
         "rel": "apple-touch-icon",
-        "href": "/images/favicon.png"
+        "href": "/images/apple-touch-icon.png"
       }
     ],
-    "author": "APIVerve",
-    "description": "APIVerve offers fast, scalable, and reliable APIs for developers. Access data enrichment, validation, and integration services with enterprise-grade performance.",
-    "keywords": "API, developer tools, data enrichment, API integration, scalable APIs, reliable APIs",
+    "author": "",
+    "description": "Consistent schemas, predictable credit pricing, and an uptime SLA on every paid plan across 300+ production APIs. One key, one bill, zero glue code.",
+    "keywords": "",
     "source": "",
     "price": "",
     "priceCurrency": "",
     "availability": "",
-    "robots": "index, follow",
-    "jsonld": [
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "APIVerve",
-        "url": "https://apiverve.com",
-        "logo": "https://apiverve.com/images/favicon.png",
-        "sameAs": [
-          "https://www.facebook.com/apiverve",
-          "https://www.twitter.com/apivervehq",
-          "https://www.linkedin.com/company/apiverve",
-          "https://github.com/apiverve",
-          "https://www.instagram.com/apiverve"
-        ]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "url": "https://apiverve.com",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://apiverve.com/marketplace?search={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
-        }
-      }
-    ],
+    "robots": "",
+    "jsonld": [],
     "og:url": "https://apiverve.com",
-    "og:locale": "",
+    "og:locale": "en_US",
     "og:locale:alternate": "",
-    "og:title": "APIVerve - Fast, Scalable, and Reliable APIs",
+    "og:title": "APIVerve — One key for 300+ production APIs",
     "og:type": "website",
-    "og:description": "APIVerve offers fast, scalable, and reliable APIs for developers. Access data enrichment, validation, and integration services with enterprise-grade performance.",
+    "og:description": "Consistent schemas, predictable credit pricing, and an uptime SLA on every paid plan across 300+ production APIs. One key, one bill, zero glue code.",
     "og:determiner": "",
     "og:site_name": "APIVerve",
-    "og:image": "https://apiverve.com/images/posterImage.png",
+    "og:image": "https://apiverve.com/social-images/page-home.png",
     "og:image:secure_url": "",
     "og:image:type": "",
     "og:image:width": "1200",
     "og:image:height": "630",
-    "twitter:title": "APIVerve - Fast, Scalable, and Reliable APIs",
-    "twitter:description": "APIVerve offers fast, scalable, and reliable APIs for developers. Access data enrichment, validation, and integration services with enterprise-grade performance.",
-    "twitter:image": "https://apiverve.com/images/posterImage.png",
+    "twitter:title": "APIVerve — One key for 300+ production APIs",
+    "twitter:description": "Consistent schemas, predictable credit pricing, and an uptime SLA on every paid plan across 300+ production APIs.",
+    "twitter:image": "https://apiverve.com/social-images/page-home.png",
     "twitter:image:alt": "",
     "twitter:card": "summary_large_image",
     "twitter:site": "",
@@ -466,180 +437,108 @@ using (var apiClient = new MetadataExtractorAPIClient("[YOUR_API_KEY]"))
     "twitter:app:url:googleplay": "",
     "headings": [
       {
-        "level": "h4",
-        "text": "API Platform"
-      },
-      {
-        "level": "h5",
-        "text": "Core Platform"
-      },
-      {
-        "level": "h5",
-        "text": "Developer Tools"
-      },
-      {
-        "level": "h5",
-        "text": "Integrations"
-      },
-      {
-        "level": "h4",
-        "text": "Solutions"
-      },
-      {
-        "level": "h5",
-        "text": "By Industry"
-      },
-      {
-        "level": "h5",
-        "text": "By Use Case"
-      },
-      {
-        "level": "h4",
-        "text": "Resources"
-      },
-      {
-        "level": "h5",
-        "text": "Learn & Build"
-      },
-      {
-        "level": "h5",
-        "text": "Support & Community"
-      },
-      {
-        "level": "h5",
-        "text": "Trust & Transparency"
-      },
-      {
         "level": "h1",
-        "text": "Fast, Scalable, and Reliable |"
+        "text": "Every API your product needs, behind one key."
       },
       {
         "level": "h2",
-        "text": "Trusted by over 40,000 forward thinking developers"
+        "text": "The boring parts of API integration, already solved."
+      },
+      {
+        "level": "h3",
+        "text": "One response envelope"
+      },
+      {
+        "level": "h3",
+        "text": "Flat credit pricing"
+      },
+      {
+        "level": "h3",
+        "text": "Backed by an uptime SLA"
       },
       {
         "level": "h2",
-        "text": "Why Developers Choose APIVerve"
+        "text": "Your first call takes two minutes."
       },
       {
         "level": "h3",
-        "text": "⚡ Unmatched Reliability"
+        "text": "Grab a key"
       },
       {
         "level": "h3",
-        "text": "🔑 True One-Key Simplicity"
+        "text": "Call any endpoint"
       },
       {
         "level": "h3",
-        "text": "🌐 GraphQL & Mocking"
+        "text": "Ship it"
       },
       {
         "level": "h2",
-        "text": "Most Popular APIs"
-      },
-      {
-        "level": "h3",
-        "text": "Daily API Performance"
+        "text": "Authenticate once. Point at anything."
       },
       {
         "level": "h2",
-        "text": "Trusted by Developers Worldwide"
+        "text": "Skip the integration work. Ship the feature."
       },
       {
-        "level": "h4",
-        "text": "Tomasz K."
+        "level": "h3",
+        "text": "User verification"
       },
       {
-        "level": "h4",
-        "text": "Priya M."
+        "level": "h3",
+        "text": "Commerce toolkit"
       },
       {
-        "level": "h4",
-        "text": "Rafael S."
+        "level": "h3",
+        "text": "Data enrichment"
+      },
+      {
+        "level": "h3",
+        "text": "Docs & media"
       },
       {
         "level": "h2",
-        "text": "Native SDKs & Libraries"
-      },
-      {
-        "level": "h4",
-        "text": "JavaScript/TypeScript"
-      },
-      {
-        "level": "h4",
-        "text": "React"
-      },
-      {
-        "level": "h4",
-        "text": "Vue.js"
-      },
-      {
-        "level": "h4",
-        "text": "Angular"
-      },
-      {
-        "level": "h4",
-        "text": "Node.js"
-      },
-      {
-        "level": "h4",
-        "text": "Next.js"
+        "text": "Metrics from the last 24 hours."
       },
       {
         "level": "h2",
-        "text": "Frequently Asked Questions"
+        "text": "Production APIs for the things you keep rebuilding."
       },
       {
         "level": "h3",
-        "text": "How much usage is included with the Free Trial plan?"
+        "text": "Email Validator →"
       },
       {
         "level": "h3",
-        "text": "How do I get an API Key?"
+        "text": "IP Lookup →"
       },
       {
         "level": "h3",
-        "text": "How does APIVerve use my data?"
+        "text": "Weather →"
       },
       {
         "level": "h3",
-        "text": "Can I change my plan at any time?"
+        "text": "QR Code Generator →"
       },
       {
         "level": "h3",
-        "text": "How do I know my plan usage?"
+        "text": "Currency Converter →"
       },
       {
         "level": "h3",
-        "text": "Can I cancel my plan anytime?"
-      },
-      {
-        "level": "h3",
-        "text": "Where can I find my invoices?"
-      },
-      {
-        "level": "h3",
-        "text": "What are your accepted payment methods?"
-      },
-      {
-        "level": "h3",
-        "text": "What happens when I go over the token limit for the month?"
-      },
-      {
-        "level": "h3",
-        "text": "What is a token?"
-      },
-      {
-        "level": "h3",
-        "text": "Do you offer student discounts?"
+        "text": "Translator →"
       },
       {
         "level": "h2",
-        "text": "Ready to build something amazing?"
+        "text": "450,000+ lookups, validations, and conversions a day, through one key."
+      },
+      {
+        "level": "h2",
+        "text": "Give your software a way to act on the world."
       },
       {
         "level": "h3",
-        "text": "APIVerve"
+        "text": "Scaling in production?"
       },
       {
         "level": "h4",
@@ -647,11 +546,11 @@ using (var apiClient = new MetadataExtractorAPIClient("[YOUR_API_KEY]"))
       },
       {
         "level": "h4",
-        "text": "Integrations"
+        "text": "Solutions"
       },
       {
         "level": "h4",
-        "text": "Solutions"
+        "text": "Integrations"
       },
       {
         "level": "h4",
@@ -671,21 +570,27 @@ using (var apiClient = new MetadataExtractorAPIClient("[YOUR_API_KEY]"))
       },
       {
         "level": "h4",
+        "text": "Featured APIs"
+      },
+      {
+        "level": "h4",
+        "text": "More"
+      },
+      {
+        "level": "h4",
         "text": "Legal"
+      },
+      {
+        "level": "h4",
+        "text": "Important disclaimer"
       }
     ],
     "imgTags": [
       {
         "src": "/images/favicon.png",
-        "alt": "APIVerve"
-      },
-      {
-        "src": "/images/wreath.svg",
-        "alt": "Award"
-      },
-      {
-        "src": "/images/brands/brand06.png",
-        "alt": "Postman"
+        "alt": "",
+        "width": "26",
+        "height": "26"
       },
       {
         "src": "/images/brands/brand01.png",
@@ -717,55 +622,180 @@ using (var apiClient = new MetadataExtractorAPIClient("[YOUR_API_KEY]"))
       },
       {
         "src": "/images/brands/brand08.svg",
-        "alt": "Brand"
+        "alt": "Deloitte"
       },
       {
         "src": "/images/brands/brand01.png",
-        "alt": "Microsoft"
+        "alt": ""
       },
       {
         "src": "/images/brands/brand02.png",
-        "alt": "DuckDuckGo"
+        "alt": ""
       },
       {
         "src": "/images/brands/brand03.png",
-        "alt": "Topdanmark"
+        "alt": ""
       },
       {
         "src": "/images/brands/brand04.png",
-        "alt": "University of Maryland"
+        "alt": ""
       },
       {
         "src": "/images/brands/brand05.png",
-        "alt": "Postman"
+        "alt": ""
       },
       {
         "src": "/images/brands/brand06.png",
-        "alt": "RapidAPI"
+        "alt": ""
       },
       {
         "src": "/images/brands/brand07.png",
-        "alt": "Zapier"
+        "alt": ""
       },
       {
         "src": "/images/brands/brand08.svg",
-        "alt": "Brand"
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand01.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand02.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand03.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand04.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand05.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand06.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand07.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand08.svg",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand01.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand02.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand03.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand04.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand05.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand06.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand07.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand08.svg",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand01.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand02.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand03.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand04.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand05.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand06.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand07.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand08.svg",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand01.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand02.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand03.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand04.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand05.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand06.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand07.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand08.svg",
+        "alt": ""
       },
       {
         "src": "/images/favicon.png",
-        "alt": "APIVerve"
+        "alt": "",
+        "width": "24",
+        "height": "24"
       }
     ],
     "responseBody": "",
-    "viewport": "width=device-width, initial-scale=1,width=device-width, initial-scale=1",
-    "googlebot": "index, follow",
+    "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
     "theme-color": "#ffffff",
     "application-name": "APIVerve",
-    "msapplication-TileColor": "#3b82f6",
-    "mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-title": "APIVerve",
-    "apple-mobile-web-app-status-bar-style": "default",
-    "og:image:alt": "APIVerve - Fast, Scalable, and Reliable APIs"
+    "og:image:alt": "APIVerve — One key for 300+ production APIs"
   }
 }
 ```
@@ -774,7 +804,7 @@ using (var apiClient = new MetadataExtractorAPIClient("[YOUR_API_KEY]"))
 
 ## Customer Support
 
-Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=nuget&utm_medium=readme).
+Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=nuget&utm_medium=referral&utm_content=readme).
 
 ---
 
@@ -785,12 +815,12 @@ Stay up to date by following [@apiverveHQ](https://twitter.com/apiverveHQ) on Tw
 
 ## Legal
 
-All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=nuget&utm_medium=readme) and all legal documents and agreements.
+All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=nuget&utm_medium=referral&utm_content=readme) and all legal documents and agreements.
 
 ---
 
 ## License
-Licensed under the The MIT License (MIT)
+Licensed under the MIT License (MIT)
 
 Copyright (&copy;) 2026 APIVerve, and EvlarSoft LLC
 

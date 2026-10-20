@@ -39,7 +39,7 @@ namespace APIVerve.API.MetadataExtractor
         public Uri Url { get; set; }
 
         [JsonProperty("canonical")]
-        public Uri Canonical { get; set; }
+        public string Canonical { get; set; }
 
         [JsonProperty("lang")]
         public string Lang { get; set; }
@@ -81,7 +81,7 @@ namespace APIVerve.API.MetadataExtractor
         public string Robots { get; set; }
 
         [JsonProperty("jsonld")]
-        public Jsonld[] Jsonld { get; set; }
+        public object[] Jsonld { get; set; }
 
         [JsonProperty("og:url")]
         public Uri OgUrl { get; set; }
@@ -198,7 +198,7 @@ namespace APIVerve.API.MetadataExtractor
         public Heading[] Headings { get; set; }
 
         [JsonProperty("imgTags")]
-        public Dictionary<string, string>[] ImgTags { get; set; }
+        public ImgTag[] ImgTags { get; set; }
 
         [JsonProperty("responseBody")]
         public string ResponseBody { get; set; }
@@ -206,26 +206,11 @@ namespace APIVerve.API.MetadataExtractor
         [JsonProperty("viewport")]
         public string Viewport { get; set; }
 
-        [JsonProperty("googlebot")]
-        public string Googlebot { get; set; }
-
         [JsonProperty("theme-color")]
         public string ThemeColor { get; set; }
 
         [JsonProperty("application-name")]
         public string ApplicationName { get; set; }
-
-        [JsonProperty("msapplication-TileColor")]
-        public string MsapplicationTileColor { get; set; }
-
-        [JsonProperty("mobile-web-app-capable")]
-        public string MobileWebAppCapable { get; set; }
-
-        [JsonProperty("apple-mobile-web-app-title")]
-        public string AppleMobileWebAppTitle { get; set; }
-
-        [JsonProperty("apple-mobile-web-app-status-bar-style")]
-        public string AppleMobileWebAppStatusBarStyle { get; set; }
 
         [JsonProperty("og:image:alt")]
         public string OgImageAlt { get; set; }
@@ -236,11 +221,14 @@ namespace APIVerve.API.MetadataExtractor
         [JsonProperty("rel")]
         public string Rel { get; set; }
 
-        [JsonProperty("type")]
-        public string Type { get; set; }
-
         [JsonProperty("href")]
         public string Href { get; set; }
+
+        [JsonProperty("sizes")]
+        public string Sizes { get; set; }
+
+        [JsonProperty("type")]
+        public string Type { get; set; }
     }
 
     public partial class Heading
@@ -252,49 +240,19 @@ namespace APIVerve.API.MetadataExtractor
         public string Text { get; set; }
     }
 
-    public partial class Jsonld
+    public partial class ImgTag
     {
-        [JsonProperty("@context")]
-        public Uri Context { get; set; }
+        [JsonProperty("src")]
+        public string Src { get; set; }
 
-        [JsonProperty("@type")]
-        public string Type { get; set; }
+        [JsonProperty("alt")]
+        public string Alt { get; set; }
 
-        [JsonProperty("name")]
-        public string Name { get; set; }
+        [JsonProperty("width")]
+        public long? Width { get; set; }
 
-        [JsonProperty("url")]
-        public Uri Url { get; set; }
-
-        [JsonProperty("logo")]
-        public Uri Logo { get; set; }
-
-        [JsonProperty("sameAs", NullValueHandling = NullValueHandling.Ignore)]
-        public Uri[] SameAs { get; set; }
-
-        [JsonProperty("potentialAction", NullValueHandling = NullValueHandling.Ignore)]
-        public PotentialAction PotentialAction { get; set; }
-    }
-
-    public partial class PotentialAction
-    {
-        [JsonProperty("@type")]
-        public string Type { get; set; }
-
-        [JsonProperty("target")]
-        public Target Target { get; set; }
-
-        [JsonProperty("query-input")]
-        public string QueryInput { get; set; }
-    }
-
-    public partial class Target
-    {
-        [JsonProperty("@type")]
-        public string Type { get; set; }
-
-        [JsonProperty("urlTemplate")]
-        public string UrlTemplate { get; set; }
+        [JsonProperty("height")]
+        public long? Height { get; set; }
     }
 
     public partial class Premium
@@ -309,5 +267,5 @@ namespace APIVerve.API.MetadataExtractor
         public string[] LockedFields { get; set; }
     }
 
-    public enum Level { H1, H2, H3, H4, H5 };
+    public enum Level { H1, H2, H3, H4 };
 }
