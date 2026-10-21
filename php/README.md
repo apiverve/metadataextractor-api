@@ -1,6 +1,6 @@
 # Metadata Extractor API - PHP Package
 
-Metadata Extractor is a simple tool for extracting metadata from web pages. It returns the meta title, meta description, and more.
+Metadata Extractor is a website metadata extraction API that pulls HTML meta tags from any submitted URL, returning the page title, meta description, author, robots directives, and language. Paid tiers add Open Graph tags, JSON-LD schemas, and favicons.
 
 ## Installation
 
@@ -71,16 +71,16 @@ $client = new Client(
   "data": {
     "requestUrl": "https://apiverve.com",
     "url": "https://apiverve.com/",
-    "canonical": "https://apiverve.com",
+    "canonical": "",
     "lang": "en",
     "charset": "utf-8",
-    "title": "APIVerve - Fast, Scalable, and Reliable APIs",
+    "title": "APIVerve — One key for 300+ production APIs",
     "image": "",
     "favicons": [
       {
         "rel": "icon",
-        "type": "image/x-icon",
-        "href": "/images/favicon.ico"
+        "href": "/images/favicon.ico",
+        "sizes": "any"
       },
       {
         "rel": "icon",
@@ -89,62 +89,34 @@ $client = new Client(
       },
       {
         "rel": "apple-touch-icon",
-        "href": "/images/favicon.png"
+        "href": "/images/apple-touch-icon.png"
       }
     ],
-    "author": "APIVerve",
-    "description": "APIVerve offers fast, scalable, and reliable APIs for developers. Access data enrichment, validation, and integration services with enterprise-grade performance.",
-    "keywords": "API, developer tools, data enrichment, API integration, scalable APIs, reliable APIs",
+    "author": "",
+    "description": "Consistent schemas, predictable credit pricing, and an uptime SLA on every paid plan across 300+ production APIs. One key, one bill, zero glue code.",
+    "keywords": "",
     "source": "",
     "price": "",
     "priceCurrency": "",
     "availability": "",
-    "robots": "index, follow",
-    "jsonld": [
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "APIVerve",
-        "url": "https://apiverve.com",
-        "logo": "https://apiverve.com/images/favicon.png",
-        "sameAs": [
-          "https://www.facebook.com/apiverve",
-          "https://www.twitter.com/apivervehq",
-          "https://www.linkedin.com/company/apiverve",
-          "https://github.com/apiverve",
-          "https://www.instagram.com/apiverve"
-        ]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "url": "https://apiverve.com",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://apiverve.com/marketplace?search={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
-        }
-      }
-    ],
+    "robots": "",
+    "jsonld": [],
     "og:url": "https://apiverve.com",
-    "og:locale": "",
+    "og:locale": "en_US",
     "og:locale:alternate": "",
-    "og:title": "APIVerve - Fast, Scalable, and Reliable APIs",
+    "og:title": "APIVerve — One key for 300+ production APIs",
     "og:type": "website",
-    "og:description": "APIVerve offers fast, scalable, and reliable APIs for developers. Access data enrichment, validation, and integration services with enterprise-grade performance.",
+    "og:description": "Consistent schemas, predictable credit pricing, and an uptime SLA on every paid plan across 300+ production APIs. One key, one bill, zero glue code.",
     "og:determiner": "",
     "og:site_name": "APIVerve",
-    "og:image": "https://apiverve.com/images/posterImage.png",
+    "og:image": "https://apiverve.com/social-images/page-home.png",
     "og:image:secure_url": "",
     "og:image:type": "",
     "og:image:width": "1200",
     "og:image:height": "630",
-    "twitter:title": "APIVerve - Fast, Scalable, and Reliable APIs",
-    "twitter:description": "APIVerve offers fast, scalable, and reliable APIs for developers. Access data enrichment, validation, and integration services with enterprise-grade performance.",
-    "twitter:image": "https://apiverve.com/images/posterImage.png",
+    "twitter:title": "APIVerve — One key for 300+ production APIs",
+    "twitter:description": "Consistent schemas, predictable credit pricing, and an uptime SLA on every paid plan across 300+ production APIs.",
+    "twitter:image": "https://apiverve.com/social-images/page-home.png",
     "twitter:image:alt": "",
     "twitter:card": "summary_large_image",
     "twitter:site": "",
@@ -168,180 +140,108 @@ $client = new Client(
     "twitter:app:url:googleplay": "",
     "headings": [
       {
-        "level": "h4",
-        "text": "API Platform"
-      },
-      {
-        "level": "h5",
-        "text": "Core Platform"
-      },
-      {
-        "level": "h5",
-        "text": "Developer Tools"
-      },
-      {
-        "level": "h5",
-        "text": "Integrations"
-      },
-      {
-        "level": "h4",
-        "text": "Solutions"
-      },
-      {
-        "level": "h5",
-        "text": "By Industry"
-      },
-      {
-        "level": "h5",
-        "text": "By Use Case"
-      },
-      {
-        "level": "h4",
-        "text": "Resources"
-      },
-      {
-        "level": "h5",
-        "text": "Learn & Build"
-      },
-      {
-        "level": "h5",
-        "text": "Support & Community"
-      },
-      {
-        "level": "h5",
-        "text": "Trust & Transparency"
-      },
-      {
         "level": "h1",
-        "text": "Fast, Scalable, and Reliable |"
+        "text": "Every API your product needs, behind one key."
       },
       {
         "level": "h2",
-        "text": "Trusted by over 40,000 forward thinking developers"
+        "text": "The boring parts of API integration, already solved."
+      },
+      {
+        "level": "h3",
+        "text": "One response envelope"
+      },
+      {
+        "level": "h3",
+        "text": "Flat credit pricing"
+      },
+      {
+        "level": "h3",
+        "text": "Backed by an uptime SLA"
       },
       {
         "level": "h2",
-        "text": "Why Developers Choose APIVerve"
+        "text": "Your first call takes two minutes."
       },
       {
         "level": "h3",
-        "text": "⚡ Unmatched Reliability"
+        "text": "Grab a key"
       },
       {
         "level": "h3",
-        "text": "🔑 True One-Key Simplicity"
+        "text": "Call any endpoint"
       },
       {
         "level": "h3",
-        "text": "🌐 GraphQL & Mocking"
+        "text": "Ship it"
       },
       {
         "level": "h2",
-        "text": "Most Popular APIs"
-      },
-      {
-        "level": "h3",
-        "text": "Daily API Performance"
+        "text": "Authenticate once. Point at anything."
       },
       {
         "level": "h2",
-        "text": "Trusted by Developers Worldwide"
+        "text": "Skip the integration work. Ship the feature."
       },
       {
-        "level": "h4",
-        "text": "Tomasz K."
+        "level": "h3",
+        "text": "User verification"
       },
       {
-        "level": "h4",
-        "text": "Priya M."
+        "level": "h3",
+        "text": "Commerce toolkit"
       },
       {
-        "level": "h4",
-        "text": "Rafael S."
+        "level": "h3",
+        "text": "Data enrichment"
+      },
+      {
+        "level": "h3",
+        "text": "Docs & media"
       },
       {
         "level": "h2",
-        "text": "Native SDKs & Libraries"
-      },
-      {
-        "level": "h4",
-        "text": "JavaScript/TypeScript"
-      },
-      {
-        "level": "h4",
-        "text": "React"
-      },
-      {
-        "level": "h4",
-        "text": "Vue.js"
-      },
-      {
-        "level": "h4",
-        "text": "Angular"
-      },
-      {
-        "level": "h4",
-        "text": "Node.js"
-      },
-      {
-        "level": "h4",
-        "text": "Next.js"
+        "text": "Metrics from the last 24 hours."
       },
       {
         "level": "h2",
-        "text": "Frequently Asked Questions"
+        "text": "Production APIs for the things you keep rebuilding."
       },
       {
         "level": "h3",
-        "text": "How much usage is included with the Free Trial plan?"
+        "text": "Email Validator →"
       },
       {
         "level": "h3",
-        "text": "How do I get an API Key?"
+        "text": "IP Lookup →"
       },
       {
         "level": "h3",
-        "text": "How does APIVerve use my data?"
+        "text": "Weather →"
       },
       {
         "level": "h3",
-        "text": "Can I change my plan at any time?"
+        "text": "QR Code Generator →"
       },
       {
         "level": "h3",
-        "text": "How do I know my plan usage?"
+        "text": "Currency Converter →"
       },
       {
         "level": "h3",
-        "text": "Can I cancel my plan anytime?"
-      },
-      {
-        "level": "h3",
-        "text": "Where can I find my invoices?"
-      },
-      {
-        "level": "h3",
-        "text": "What are your accepted payment methods?"
-      },
-      {
-        "level": "h3",
-        "text": "What happens when I go over the token limit for the month?"
-      },
-      {
-        "level": "h3",
-        "text": "What is a token?"
-      },
-      {
-        "level": "h3",
-        "text": "Do you offer student discounts?"
+        "text": "Translator →"
       },
       {
         "level": "h2",
-        "text": "Ready to build something amazing?"
+        "text": "450,000+ lookups, validations, and conversions a day, through one key."
+      },
+      {
+        "level": "h2",
+        "text": "Give your software a way to act on the world."
       },
       {
         "level": "h3",
-        "text": "APIVerve"
+        "text": "Scaling in production?"
       },
       {
         "level": "h4",
@@ -349,11 +249,11 @@ $client = new Client(
       },
       {
         "level": "h4",
-        "text": "Integrations"
+        "text": "Solutions"
       },
       {
         "level": "h4",
-        "text": "Solutions"
+        "text": "Integrations"
       },
       {
         "level": "h4",
@@ -373,21 +273,27 @@ $client = new Client(
       },
       {
         "level": "h4",
+        "text": "Featured APIs"
+      },
+      {
+        "level": "h4",
+        "text": "More"
+      },
+      {
+        "level": "h4",
         "text": "Legal"
+      },
+      {
+        "level": "h4",
+        "text": "Important disclaimer"
       }
     ],
     "imgTags": [
       {
         "src": "/images/favicon.png",
-        "alt": "APIVerve"
-      },
-      {
-        "src": "/images/wreath.svg",
-        "alt": "Award"
-      },
-      {
-        "src": "/images/brands/brand06.png",
-        "alt": "Postman"
+        "alt": "",
+        "width": "26",
+        "height": "26"
       },
       {
         "src": "/images/brands/brand01.png",
@@ -419,55 +325,180 @@ $client = new Client(
       },
       {
         "src": "/images/brands/brand08.svg",
-        "alt": "Brand"
+        "alt": "Deloitte"
       },
       {
         "src": "/images/brands/brand01.png",
-        "alt": "Microsoft"
+        "alt": ""
       },
       {
         "src": "/images/brands/brand02.png",
-        "alt": "DuckDuckGo"
+        "alt": ""
       },
       {
         "src": "/images/brands/brand03.png",
-        "alt": "Topdanmark"
+        "alt": ""
       },
       {
         "src": "/images/brands/brand04.png",
-        "alt": "University of Maryland"
+        "alt": ""
       },
       {
         "src": "/images/brands/brand05.png",
-        "alt": "Postman"
+        "alt": ""
       },
       {
         "src": "/images/brands/brand06.png",
-        "alt": "RapidAPI"
+        "alt": ""
       },
       {
         "src": "/images/brands/brand07.png",
-        "alt": "Zapier"
+        "alt": ""
       },
       {
         "src": "/images/brands/brand08.svg",
-        "alt": "Brand"
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand01.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand02.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand03.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand04.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand05.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand06.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand07.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand08.svg",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand01.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand02.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand03.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand04.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand05.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand06.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand07.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand08.svg",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand01.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand02.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand03.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand04.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand05.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand06.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand07.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand08.svg",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand01.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand02.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand03.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand04.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand05.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand06.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand07.png",
+        "alt": ""
+      },
+      {
+        "src": "/images/brands/brand08.svg",
+        "alt": ""
       },
       {
         "src": "/images/favicon.png",
-        "alt": "APIVerve"
+        "alt": "",
+        "width": "24",
+        "height": "24"
       }
     ],
     "responseBody": "",
-    "viewport": "width=device-width, initial-scale=1,width=device-width, initial-scale=1",
-    "googlebot": "index, follow",
+    "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
     "theme-color": "#ffffff",
     "application-name": "APIVerve",
-    "msapplication-TileColor": "#3b82f6",
-    "mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-title": "APIVerve",
-    "apple-mobile-web-app-status-bar-style": "default",
-    "og:image:alt": "APIVerve - Fast, Scalable, and Reliable APIs"
+    "og:image:alt": "APIVerve — One key for 300+ production APIs"
   }
 }
 ```
@@ -479,11 +510,11 @@ $client = new Client(
 
 ## Documentation
 
-For more information, visit the [API Documentation](https://docs.apiverve.com/ref/metadataextractor?utm_source=packagist&utm_medium=readme).
+For more information, visit the [API Documentation](https://docs.apiverve.com/ref/metadataextractor?utm_source=packagist&utm_medium=referral&utm_content=readme).
 
 ## Support
 
-- Website: [https://apiverve.com/marketplace/metadataextractor?utm_source=php&utm_medium=readme](https://apiverve.com/marketplace/metadataextractor?utm_source=php&utm_medium=readme)
+- Website: [https://apiverve.com/marketplace/metadataextractor?utm_source=php&utm_medium=referral&utm_content=readme](https://apiverve.com/marketplace/metadataextractor?utm_source=php&utm_medium=referral&utm_content=readme)
 - Email: hello@apiverve.com
 
 ## License

@@ -1,7 +1,7 @@
 {
     "name": "apiverve/metadataextractor",
-    "description": "Metadata Extractor is a simple tool for extracting metadata from web pages. It returns the meta title, meta description, and more.",
-    "version": "1.2.0",
+    "description": "Metadata Extractor is a website metadata extraction API that pulls HTML meta tags from any submitted URL, returning the page title, meta description, author, robots directives, and language. Paid tiers add Open Graph tags, JSON-LD schemas, and favicons.",
+    "version": "1.2.2",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -15,13 +15,13 @@
         "api",
         "apiverve",
         "metadataextractor",
-        "metadata extractor",
-        "metadata extraction",
+        "website metadata extraction api",
         "metadata extractor api",
-        "metadata extraction api",
-        "metadata extractor tool"
+        "url metadata extractor",
+        "meta tag extractor",
+        "metadata api"
     ],
-    "homepage": "https://apiverve.com/marketplace/metadataextractor?utm_source=php&utm_medium=homepage",
+    "homepage": "https://apiverve.com/marketplace/metadataextractor?utm_source=php&utm_medium=referral&utm_content=homepage",
     "support": {
         "email": "hello@apiverve.com",
         "docs": "https://docs.apiverve.com/ref/metadataextractor",
