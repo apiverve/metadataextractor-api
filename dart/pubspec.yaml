@@ -1,0 +1,16 @@
+name: apiverve_metadataextractor
+description: "Metadata Extractor is a website metadata extraction API that pulls HTML meta tags from any submitted URL, returning the page title, meta description, author, robots directives, and language. Paid tiers add Open Graph tags, JSON-LD schemas, and favicons."
+version: 1.2.5
+homepage: https://apiverve.com/marketplace/metadataextractor?utm_source=dart&utm_medium=referral&utm_content=homepage
+repository: https://github.com/apiverve/metadataextractor-api/tree/main/dart
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  http: ^1.1.0
+  http_parser: ^4.0.0
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
